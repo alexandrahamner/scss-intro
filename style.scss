@@ -19,12 +19,18 @@
     }
   }
   
+  @mixin style-link-text($color) { //pass in an argument
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color;
+  }
+  
   nav {
     margin: 30px;
     background-color: $color-primary;
     
     @include clearfix; //mixin
-  }  
+  }
     
   .navigation {
     list-style: none;
@@ -39,9 +45,7 @@
       }
       
       a {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: $color-text-dark;
+        @include style-link-text($color-text-dark);
       }
     }
   }
@@ -56,10 +60,9 @@
     display: inline-block;
     text-align: center;
     border-radius: 100px;
-    text-decoration: none;
-    text-transform: uppercase;
     width: $width-button;
-    color: $color-text-light;
+    
+    @include style-link-text($color-text-light);
   }
   
   .btn-main {
