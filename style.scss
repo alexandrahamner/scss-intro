@@ -24,9 +24,13 @@
     text-transform: uppercase;
     color: $color;
   }
+
+  @function divide($a, $b) { //functions
+    @return $a / $b;
+  }
   
   nav {
-    margin: 30px;
+    margin: divide(60, 2) * 1px;
     background-color: $color-primary;
     
     @include clearfix; //mixin
@@ -54,8 +58,7 @@
       float: right;
   }
   
-  .btn-main:link,
-  .btn-hot:link {
+  %btn-placeholder {
     padding: 10px;
     display: inline-block;
     text-align: center;
@@ -67,6 +70,7 @@
   
   .btn-main {
     &:link {
+      @extend %btn-placeholder;
       background-color: $color-secondary;
     }
     
@@ -77,6 +81,7 @@
   
   .btn-hot {
     &:link {
+      @extend %btn-placeholder;
       background-color: $color-tertiary;
     }
     
